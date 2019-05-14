@@ -1,7 +1,8 @@
 import getopt
 import sys
+import os
 
-version = '0.1'
+version = '1.0'
 
 
 def help():
@@ -38,7 +39,33 @@ def main(argv):
 
 
 def generate_file(keys, filename):
-    print("yes")
+    _file = open(filename, "w")
+    number_of_lines = 0
+
+    for key in keys:
+        key.lower()
+        for x in range(101):
+            _file.write(str(key) + str(x) + "\n")
+            number_of_lines += 1
+        for x in range(101):
+            _file.write(key.capitalize() + str(x) + "\n")
+            number_of_lines += 1
+        for x in range(101):
+            _file.write(str(key) + str(x).zfill(3) + "\n")
+            number_of_lines += 1
+        for x in range(101):
+            _file.write(key.capitalize() + str(x).zfill(3) + "\n")
+            number_of_lines += 1
+        for x in range(101, 1000):
+            _file.write(str(key) + str(x) + "\n")
+            number_of_lines += 1
+        for x in range(101, 1000):
+            _file.write(key.capitalize() + str(x) + "\n")
+            number_of_lines += 1
+    _file.close()
+    print("\nFile successfully created!\n")
+    print("Filepath: " + str(os.getcwd()) + "/" + str(filename))
+    print("Number of lines: " + str(number_of_lines))
 
 
 if __name__ == "__main__":
