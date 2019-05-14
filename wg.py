@@ -22,7 +22,7 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv, "hvik:o:", ["seeds=", "output="])
     except getopt.GetoptError:
-        print("invalid command")
+        print("Invalid command\nProgram terminated")
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-v':
@@ -40,7 +40,7 @@ def main(argv):
     if len(keywords) > 0 and len(output) > 0:
         generate_file(keywords, output, include_top)
     else:
-        sys.exit("lack of arguments")
+        sys.exit("Lack of arguments\nProgram terminated")
 
 
 def generate_file(keys, filename, include_top):
